@@ -2,9 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 
 //import routes
-
+import { userRouter } from './routes/user.routes.js';
 
 dotenv.config()
 
@@ -16,8 +17,11 @@ const app = express();
 
 //middleware
 app.use(cors());
+app.use(bodyParser.json({ limit: "4000kb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "4000kb", extended: true }));
 
 //routes
+app.use(userRouter);
 
 //database conenction
 mongoose

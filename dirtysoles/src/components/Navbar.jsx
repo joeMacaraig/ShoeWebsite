@@ -5,13 +5,19 @@ import {
   Toolbar,
   Button,
   Typography,
-  IconButton,
   Link,
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 export const Navbar = () => {
+  const {user} = useAuthContext();
+  const {logout} = useLogout();
+  const handleClick = () => {
+    logout();
+  }
   return (
     <AppBar sx={{ bgcolor: "white", m: 0 }} position="static">
       <Container>
@@ -25,10 +31,19 @@ export const Navbar = () => {
               DirtySoles
             </Link>
           </Typography>
-          <Button sx={{ textDecoration: "none" }}>Products</Button>
-          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink}>
-            Login
-          </Button>
+          {user && (
+          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
+          )}
+          <Button sx={{ textDecoration: "none" }} to="/products" as={NavLink}>Products</Button>
+          {!user && (
+          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink}>Login</Button>
+          )}
+          {!user && (
+          <Button sx={{ textDecoration: "none" }} to="/signup" as={NavLink}>Sign Up</Button>
+          )}
+          {user && (
+          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
