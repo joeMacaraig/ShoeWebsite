@@ -31,15 +31,9 @@ export const Navbar = () => {
               DirtySoles
             </Link>
           </Typography>
-          {user && (
-          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
-          )}
           <Button sx={{ textDecoration: "none" }} to="/products" as={NavLink}>Products</Button>
           {!user && (
           <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink}>Login</Button>
-          )}
-          {!user && (
-          <Button sx={{ textDecoration: "none" }} to="/signup" as={NavLink}>Sign Up</Button>
           )}
           {user && (
           <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
