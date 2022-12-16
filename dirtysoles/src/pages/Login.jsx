@@ -24,6 +24,7 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
       event.preventDefault(); 
+      console.log(username, password)
       await login(username, password)
   }
   return (

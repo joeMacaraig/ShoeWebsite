@@ -30,7 +30,7 @@ const UserSchema = new Schema({
 
 UserSchema.statics.login = async function (username, password) {
     
-    if (!username || password) {
+    if (!username || !password) {
         throw Error ('All fields must be filled!');
     }
 

@@ -5,6 +5,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 //import routes
+import { inventoryRouter } from './routes/inventory.routes.js';
+import { sneakerRouter } from './routes/sneaker.routes.js';
+import { productRouter } from './routes/products.routes.js';
 import { userRouter } from './routes/user.routes.js';
 
 dotenv.config()
@@ -21,9 +24,13 @@ app.use(bodyParser.json({ limit: "4000kb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "4000kb", extended: true }));
 
 //routes
+app.use(inventoryRouter);
+app.use(sneakerRouter);
+app.use(productRouter);
 app.use(userRouter);
 
-//database conenction
+
+//database connection
 mongoose
     .set('strictQuery', false)
     .connect(DB_PORT, {useNewUrlParser : true, dbName: "ShoeWebsite"})

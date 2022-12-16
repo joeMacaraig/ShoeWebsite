@@ -36,6 +36,9 @@ export const Navbar = () => {
           <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink}>Login</Button>
           )}
           {user && (
+          <Button sx={{textDecoration: "none"}} to="/account" as={NavLink}>Account</Button>
+          )}
+          {user && (
           <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
           )}
         </Toolbar>
