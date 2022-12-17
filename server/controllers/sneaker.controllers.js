@@ -6,7 +6,7 @@ export const sneakerController = {
   getSneakers: async () => {
     try {
       const sneakerCollection = Sneaker;
-      const data = await sneakerCollection.find({});
+      const data = await sneakerCollection.find({visible: true });
       return data.map((sneaker) => sneaker.toObject());
     } catch (err) {
       console.log(`FAILED TO GET SNEAKERS :: ${err}`);

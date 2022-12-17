@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import axios from 'axios';
 
 export const ProductDetails = ({product}) => {
@@ -18,8 +18,14 @@ export const ProductDetails = ({product}) => {
     }, []);
 
     return (
-        <Container>
+        <Container sx={{display: 'flex', flexDirection: 'row'}}>
+            <Box p={1} sx={{width: '50%'}}>
             <Typography>{productDetails.name}</Typography>
+            </Box>
+            <Box p={1} sx={{width: '50%'}}>
+            <img src={productDetails.images?.regular} width="100%" alt="shoe" />
+            </Box>
+
         </Container>
     )
 }

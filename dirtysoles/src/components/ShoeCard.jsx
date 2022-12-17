@@ -1,6 +1,10 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Typography, Button } from "@mui/material";
+import AddBoxIcon from '@mui/icons-material/AddBox';
+// import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import axios from "axios";
 
 const Cards = styled.div`
   width: 250px;
@@ -26,7 +30,7 @@ export const ShoeCard = ({ name, img, id, price }) => {
         <img
           src={img}
           alt=""
-          style={{ padding: '3px', margin: '1rem 1rem', width: '100%', borderRadius: '400% 1000% 300% 150%', transform: 'rotate(0.05turn)'}}
+          style={{ padding: '1rem', width: '95%', borderRadius: '400% 1000% 300% 150%', transform: 'rotate(0.05turn)'}}
         />
         <Box sx={{ width: "100%", boxSizing: "border-box", padding: "1rem" }}>
           <Typography>{name}</Typography>
@@ -36,20 +40,3 @@ export const ShoeCard = ({ name, img, id, price }) => {
     </Link>
   );
 };
-
-export const SneakerCard = ({name, img, id, price}) => {
-  return (
-    <Card sx={{width: '100%', height: '200px'}}>
-        <img
-          src={img}
-          alt=""
-          style={{ padding: '3px', margin: '1rem 1rem', height:'fit-content'}}
-        />
-        <Box sx={{ width: "100%", boxSizing: "border-box", padding: "1rem" }}>
-          <Typography>{name}</Typography>
-          <Typography>${price}</Typography>
-        </Box>
-    </Card>
-
-  )
-}

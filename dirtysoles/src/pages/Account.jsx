@@ -1,41 +1,35 @@
-import React, {useState, useEffect} from "react";
-import { Container, Typography } from "@mui/material";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { SneakerCard } from "../components/ShoeCard";
-import axios from "axios";
+import { Container, Typography, Button, Box } from "@mui/material";
+import React, { useState } from "react";
+import { SneakerTable } from "../components/SneakerTable";
+import { InventoryTable } from "../components/InventoryTable";
 
 export const Account = () => {
-    const {user} = useAuthContext();
-    const [sneakers, setSneakers] = useState([]); //array of objects
-
-    const getSneakers = async () => {
-      const data = await (await axios.get("http://localhost:10000/sneakers")).data;
-      setSneakers(data.data.sneakers);
-    };
-  
-    useEffect(() => {
-      getSneakers();
-    }, []);
+  const [toggle, setToggle] = useState(false);
   return (
-    <Container>
-        <Typography>{user.username}</Typography>
-        {sneakers
-      .sort(function (a, b) {
-        if (a.name < b.name){
-            return -1;
-        } if (a.name > b.name) {
-            return 1;
-        } else {
-            return 0;
-        }})
-      .map((shoe) => (
-            <SneakerCard
-            name={shoe.name}
-            img={shoe.images.thumbnail}
-            id={shoe.id}
-            price={shoe.price}
-          />
-    ))}
+    <Container
+      sx={{
+        padding: "1rem",
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
+      <Box sx={{ margin: "1rem", width: "30%", gap: "3" }}>
+        <Typography variant="h4">Welcome Back!</Typography>
+        <Button onClick={() => setToggle(false)}>Inventory Table</Button>
+        <Button onClick={() => setToggle(true)}>Sneaker Table</Button>
+      </Box>
+      <Box
+        sx={{
+          border: "solid",
+          padding: "0",
+          width: "100%",
+          overflow: "scroll",
+        }}
+      >
+        {!toggle ? <InventoryTable /> : <SneakerTable />}
+      </Box>
     </Container>
   );
 };
