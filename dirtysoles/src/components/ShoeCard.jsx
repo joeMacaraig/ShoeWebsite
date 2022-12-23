@@ -10,7 +10,8 @@ const Cards = styled.div`
   width: 250px;
   height: fit-content;
   display: flex;
-  border: solid; 
+  border: solid;
+  border-color: black; 
   border-radius: 30px;
   flex-direction: column;
   margin: 1rem 1rem;

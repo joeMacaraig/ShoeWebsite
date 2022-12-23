@@ -42,7 +42,6 @@ export const SneakerTable = () => {
       const addData = await await axios.post(
         `http://localhost:10000/inventory/add/${id}`
       );
-      window.location.reload(); 
     }
   };
 

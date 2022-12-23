@@ -34,6 +34,15 @@ export const inventoryController = {
       console.log(err);
     }
   },
+  getFeaturedInventory: async () => {
+    const inventoryCollection = Inventory;
+    try {
+      const products = await inventoryCollection.find({ featured: true });
+      return products != null ? products : {};
+    } catch (err) {
+      console.log(err);
+    }
+  },
   addInventoryItem: async (id, sneakerDetail) => {
     const inventoryCollection = Inventory;
     const sneakerCollection = Sneaker;
@@ -124,6 +133,7 @@ export const inventoryController = {
               marketPrice: sneaker.price,
               price: sneakerDetail.price ?? sneaker.price,
               showInCatalog: true,
+              featured: false,
               stock: sneakerDetail.stock ?? 0,
               inventoryID: uuidv4(),
               sourceID: sneaker.id,

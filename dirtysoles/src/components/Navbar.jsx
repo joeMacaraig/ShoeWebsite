@@ -22,24 +22,25 @@ export const Navbar = () => {
     <AppBar sx={{ bgcolor: "white", m: 0 }} position="static">
       <Container>
         <Toolbar disableGutters>
-          <Typography sx={{ color: "black", flexGrow: 1 }} variant="h6">
+          <Typography sx={{ color: "black", flexGrow: 1, fontFamily: 'Old English Five'}} variant="h6">
             <Link
               sx={{ color: "black", textDecoration: "none" }}
               to="/"
               as={NavLink}
             >
-              DirtySoles
+              Dirty Soles
             </Link>
           </Typography>
-          <Button sx={{ textDecoration: "none" }} to="/products" as={NavLink}>Products</Button>
+          <Button sx={{ textDecoration: "none", display:'flex', justifyContent:'center', alignItems:'center' }} to="/" as={NavLink}>Home</Button>
+          <Button sx={{ textDecoration: "none", display:'flex', justifyContent:'center', alignItems:'center' }} to="/products" as={NavLink}>Products</Button>
           {!user && (
-          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink}>Login</Button>
+          <Button sx={{ textDecoration: "none", display:'flex', justifyContent:'center', alignItems:'center'  }} to="/login" as={NavLink}>Login</Button>
           )}
           {user && (
-          <Button sx={{textDecoration: "none"}} to="/account" as={NavLink}>Account</Button>
+          <Button sx={{textDecoration: "none", display:'flex', justifyContent:'center', alignItems:'center' }} to="/account" as={NavLink}>Account</Button>
           )}
           {user && (
-          <Button sx={{ textDecoration: "none" }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
+          <Button sx={{ textDecoration: "none", display:'flex', justifyContent:'center', alignItems:'center'  }} to="/login" as={NavLink} onClick={handleClick}>Logout</Button>
           )}
         </Toolbar>
       </Container>
