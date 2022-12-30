@@ -14,7 +14,7 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import axios from "axios";
 
-export const ProductDetails = ({ product }) => {
+export const ProductDetails = () => {
   const params = useParams();
   const [productDetails, setProductDetails] = useState([]);
   const [shipping, setShipping] = useState(true);

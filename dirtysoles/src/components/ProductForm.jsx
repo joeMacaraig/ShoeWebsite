@@ -19,7 +19,7 @@ export const ProductForm = memo(({name, id, price, featured}) => {
             onChange={(e) => setName(e.target.value)}
           />
             <TextField
-            sx={{ m: 1 }}
+            sx={{display: 'flex', justifyContent:'center', alignItems:'center'}}
             id="outlined-name"
             variant="outlined"
             placeholder={price}

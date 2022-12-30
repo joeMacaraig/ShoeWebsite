@@ -173,7 +173,7 @@ export const inventoryController = {
           { id },
           {
             price: updates.price ?? sneaker.price,
-            showInCatalog: updates.showInCatalog ?? sneaker.showInCatalog,
+            featured: updates.featured ?? sneaker.featured,
             stock: updates.stock ?? sneaker.stock,
           }
         );
